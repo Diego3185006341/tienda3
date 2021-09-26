@@ -1,0 +1,14 @@
+.bg-purple {
+    background-color: purple;
+}
+
+.bg-image {
+    background-image: url(https://misionticueb.myopenlms.net/pluginfile.php/1/theme_snap/coverimage/1618870700/site-image.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+.containerlogin {
+background-color: rgb(0,0,0,0.5);
+    margin: inherit;
+}
