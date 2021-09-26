@@ -91,7 +91,7 @@ public class UsuarioDAO {
 		boolean dat=false;
 		int x;
 		try {
-			ps=cnn.prepareStatement("UPDATE usuario SET nomusu=?,clave=?,rol=?,estado=? WHERE documento=?");
+			ps=cnn.prepareStatement("UPDATE usuario SET nomusuario=?,clave=?,rol=?,estado=? WHERE documento=?");
 		    ps.setString(1, us.getNomusuario());
 		    ps.setString(2, us.getClave());
 		    ps.setString(3, us.getRol());
