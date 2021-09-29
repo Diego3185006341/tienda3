@@ -11,20 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
+import modelo.ClientesDAO;
+import modelo.ClientesDTO;
 import modelo.UsuarioDAO;
 import modelo.UsuarioDTO;
 
 /**
- * Servlet implementation class servletusuario
+ * Servlet implementation class servletcliente
  */
-@WebServlet("/servletusuario")
-public class servletusuario extends HttpServlet {
+@WebServlet("/servletcliente")
+public class servletcliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public servletusuario() {
+    public servletcliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,13 +46,12 @@ public class servletusuario extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		
 		String u,c,r,e;
 		int d;
 		String res;
-		UsuarioDTO usdto;
-		UsuarioDAO usdao;
-		UsuarioDTO recdatos;
+		ClientesDTO cldto;
+		ClientesDAO cldao;
+		ClientesDTO recdatos;
 		
 		if(request.getParameter("btnins")!=null) {
 		d=Integer.parseInt(request.getParameter("doc"));
@@ -59,16 +60,16 @@ public class servletusuario extends HttpServlet {
 		r=request.getParameter("rol");
 		e=request.getParameter("est");
 		
-		usdto=new UsuarioDTO(d, u, c, r, e);
-		usdao=new UsuarioDAO();
-		res=usdao.insertarusuario(usdto);
+		cldto=new ClientesDTO(d, u, c, r, e);
+		cldao=new ClientesDAO();
+		res=cldao.insertarusuario(cldto);
 		if(res.equals("r")) {
-			JOptionPane.showMessageDialog(null, "Usuario registrdo");
-			response.sendRedirect("usuario.jsp");
+			JOptionPane.showMessageDialog(null, "Cliente registrdo");
+			response.sendRedirect("Clientes.jsp");
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "Usuario no registrado");
-			response.sendRedirect("usuario.jsp");
+			JOptionPane.showMessageDialog(null, "Cliente no registrado");
+			response.sendRedirect("Clientes.jsp");
 		}
 		
 			
@@ -79,17 +80,17 @@ public class servletusuario extends HttpServlet {
 		 int doc;
 		 
 		 d=Integer.parseInt(request.getParameter("doc"));
-		 usdto=new UsuarioDTO(d);
-		 usdao=new UsuarioDAO();
-		 recdatos=usdao.consultarusuario(usdto);
+		 cldto=new ClientesDTO(d);
+		 cldao=new ClientesDAO();
+		 recdatos=cldao.consultarcliente(cldto);
 		 
-		 doc=recdatos.getCedula_usuario();
-		 u=recdatos.getEmail_usuario();
-		 c=recdatos.getNombre_usuario();
-		 r=recdatos.getPassword();
-		 e=recdatos.getUsuario();
+		 doc=recdatos.getCedula_cliente();
+		 u=recdatos.getDireccion_cliente();
+		 c=recdatos.getEmail_cliente();
+		 r=recdatos.getNombre_cliente();
+		 e=recdatos.getTelefono_cliente();
 		 
-		 response.sendRedirect("usuario.jsp?do="+doc+"&&us="+u+"&&cl="+c+"&&ro="+r+"&&es="+e);
+		 response.sendRedirect("Clientes.jsp?do="+doc+"&&us="+u+"&&cl="+c+"&&ro="+r+"&&es="+e);
 			
 			
 		}
@@ -111,9 +112,9 @@ public class servletusuario extends HttpServlet {
 		  c=request.getParameter("cla");
 		  r=request.getParameter("rol");
 		  e=request.getParameter("est");
-		  usdto=new UsuarioDTO(d, u, c, r, e);
-		  usdao=new UsuarioDAO();
-		  dat=usdao.actualizar(usdto);
+		  cldto=new ClientesDTO(d, u, c, r, e);
+		  cldao=new ClientesDAO();
+		  dat=cldao.actualizar(cldto);
 			if(dat==true) {
 				JOptionPane.showMessageDialog(null, "El usuario se actualizo");
 				response.sendRedirect("usuario.jsp");
@@ -132,9 +133,9 @@ public class servletusuario extends HttpServlet {
 			//Acci�n para eliminar
 			int y;
 			d=Integer.parseInt(request.getParameter("doc"));
-			 usdto=new UsuarioDTO(d);
-			 usdao=new UsuarioDAO();
-			 y=usdao.eliminar(usdto);
+			 cldto=new ClientesDTO(d);
+			 cldao=new ClientesDAO();
+			 y=cldao.eliminar(cldto);
 			 if(y>0) {
 			    JOptionPane.showMessageDialog(null, "El usuario fue eliminado");
 			    response.sendRedirect("usuario.jsp");
@@ -149,17 +150,12 @@ public class servletusuario extends HttpServlet {
 			
 		}
 		
-		ArrayList<UsuarioDTO> lista=new ArrayList<UsuarioDTO>();
-		usdao=new UsuarioDAO();
-		lista=usdao.consultar();
+		ArrayList<ClientesDTO> lista=new ArrayList<ClientesDTO>();
+		cldao=new ClientesDAO();
+		lista=cldao.consultar();
 		 try ( PrintWriter out = response.getWriter()) {
 		 out.println("<select> <option> " + request.getContextPath() + "</option></select>");
 		 }
-		
-		
-		
-		
-		
 		
 	}
 
