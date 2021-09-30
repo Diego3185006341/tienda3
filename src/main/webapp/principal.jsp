@@ -62,7 +62,7 @@
 			<div class="card h-100">
 				<img src="https://misionticueb.myopenlms.net/pluginfile.php/91348/theme_snap/coverimage/1630177066/course-image.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
-					<h5 class="card-title">Equipo</h5>
+					<h5 class="card-title">Equipo 05</h5>
 					<p class="card-text">Diego Galindo<br>
 					Manuel Gómez<br>
 					Norbey García<br>

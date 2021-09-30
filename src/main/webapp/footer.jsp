@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <footer class="row bg-light py-4 mt-auto">
-					<div class="col"><p align="right">equipo 5, grupo 40 misiontic2022</p></div>
+					<div class="col"><p align="right">grupo 40 misiontic2022</p></div>
 				</footer>
 			</div>
 		</div>
