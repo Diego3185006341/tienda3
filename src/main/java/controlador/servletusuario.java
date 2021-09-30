@@ -89,7 +89,7 @@ public class servletusuario extends HttpServlet {
 		 r=recdatos.getPassword();
 		 e=recdatos.getUsuario();
 		 
-		 response.sendRedirect("usuario.jsp?do="+doc+"&&us="+u+"&&cl="+c+"&&ro="+r+"&&es="+e);
+		 response.sendRedirect("clientes.jsp?do="+doc+"&&us="+u+"&&cl="+c+"&&ro="+r+"&&es="+e);
 			
 			
 		}
