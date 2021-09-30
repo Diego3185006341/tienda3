@@ -5,27 +5,29 @@
 }
 #header{
     width: 100%;
-    height: 85px;   
+    height: 1px;   
     float:left;
     border: 2px solid grey;
+    background-color:#3e3e00;
 }
 #nav{
     width: 100%;
-    height: 65px;
+    height: 80px;
     float:left;
     border: 2px solid grey;
+    background-color: #3e3e00;
 }
 
 #sidebar{
     width: 15%;
-    min-height: 350px; 
+    min-height: 1000px; 
     float:left;
     margin-right: .3%;
     border: 2px solid grey;
 }
 #content{
     width: 84.7%;
-    height: 450px;
+    height: 1000px;
     float:left;
     border: 2px solid grey;
 }
@@ -35,4 +37,7 @@
     float:left;
     margin-top:4px;
     border: 2px solid grey;
+}
+.bg-info {
+    background-color: #28a745!important;
 }

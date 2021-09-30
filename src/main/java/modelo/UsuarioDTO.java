@@ -2,91 +2,112 @@ package modelo;
 
 
 	public class UsuarioDTO {
-		 private int documento;
-		 private String nomusuario;
-		 private String clave;
-		 private String rol;
-		 private String estado;
+		 private int cedula_usuario;
+		 private String email_usuario;
+		 private String nombre_usuario;
+		 private String password;
+		 private String usuario;
 		 
 		 
 		 
-		 public UsuarioDTO(int documento, String nomusuario, String clave, String rol, String estado) {
-			this.documento = documento;
-			this.nomusuario = nomusuario;
-			this.clave = clave;
-			this.rol = rol;
-			this.estado = estado;
+		 public UsuarioDTO(int cedulausuario,String email, String nombreus, String password, String usuario) {
+			this.cedula_usuario =cedulausuario ;
+			this.email_usuario= email;
+			this.nombre_usuario = nombreus;
+			this.password =password;
+			this.usuario = usuario;
 		}
 		 
 
 
 
 
-		public UsuarioDTO(int documento) {
-			this.documento = documento;
+		public UsuarioDTO(int cd) {
+			this.cedula_usuario = cd;
 		}
 
 
 
 
 
-		public int getDocumento() {
-			return documento;
+		public int getCedula_usuario() {
+			return cedula_usuario;
 		}
 
 
 
-		public void setDocumento(int documento) {
-			this.documento = documento;
+
+
+		public void setCedula_usuario(int cedula_usuario) {
+			this.cedula_usuario = cedula_usuario;
 		}
 
 
 
-		public String getNomusuario() {
-			return nomusuario;
+
+
+		public String getEmail_usuario() {
+			return email_usuario;
 		}
 
 
 
-		public void setNomusuario(String nomusuario) {
-			this.nomusuario = nomusuario;
+
+
+		public void setEmail_usuario(String email_usuario) {
+			this.email_usuario = email_usuario;
 		}
 
 
 
-		public String getClave() {
-			return clave;
+
+
+		public String getNombre_usuario() {
+			return nombre_usuario;
 		}
 
 
 
-		public void setClave(String clave) {
-			this.clave = clave;
+
+
+		public void setNombre_usuario(String nombre_usuario) {
+			this.nombre_usuario = nombre_usuario;
 		}
 
 
 
-		public String getRol() {
-			return rol;
+
+
+		public String getPassword() {
+			return password;
 		}
 
 
 
-		public void setRol(String rol) {
-			this.rol = rol;
+
+
+		public void setPassword(String password) {
+			this.password = password;
 		}
 
 
 
-		public String getEstado() {
-			return estado;
+
+
+		public String getUsuario() {
+			return usuario;
 		}
 
 
 
-		public void setEstado(String estado) {
-			this.estado = estado;
+
+
+		public void setUsuario(String usuario) {
+			this.usuario = usuario;
 		}
+
+
+
 
 		 
 }
