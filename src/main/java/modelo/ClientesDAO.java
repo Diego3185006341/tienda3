@@ -63,7 +63,7 @@ public String insertarcliente(ClientesDTO cdo) {
 		e.printStackTrace();
 	}	
 		
-	return cdo;
+	return cldo;
 	}
 
 
