@@ -15,6 +15,7 @@ public class ClientesDAO {
 	ResultSet rs;
 	ClientesDTO cdo;
 	
+@SuppressWarnings("null")
 public String insertarusuario(ClientesDTO cdo) {
 		
 		int x;
