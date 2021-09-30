@@ -89,7 +89,7 @@ public String insertarusuario(ClientesDTO cdo) {
 		boolean dat=false;
 		int x;
 		try {
-			ps=cnn.prepareStatement("UPDATE clientes SET direccion_cliente=?,email_cliente=?nombre_cliente,=?,telefono_cliente=? WHERE cedula_cliente?");
+			ps=cnn.prepareStatement("UPDATE clientes SET direccion_cliente=?,email_cliente=?nombre_cliente=?,telefono_cliente=? WHERE cedula_cliente=?");
 		    ps.setString(1, cdo.getDireccion_cliente());
 		    ps.setString(2, cdo.getEmail_cliente());
 		    ps.setString(3, cdo.getNombre_cliente());
