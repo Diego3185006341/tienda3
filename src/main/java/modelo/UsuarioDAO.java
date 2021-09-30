@@ -129,7 +129,7 @@ public class UsuarioDAO {
 		
 		try {
 			cnn = Conexion.conexiondb();
-			String sql = "SELECT U.documento, U.nomusuario, U.clave FROM usuario U WHERE U.nomusuario = ? AND U.clave = ?";
+			String sql = "SELECT U.cedula_usuario, U.nombre_usuario, U.password FROM usuarios U WHERE U.usuario = ? AND U.password = ?";
 			ps = cnn.prepareStatement(sql);
 			ps.setString(1, numusuario);
 			ps.setString(2, clave);
