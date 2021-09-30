@@ -40,23 +40,23 @@
 								class="ms-1 d-none d-sm-inline">Usuarios</span>
 						</a></li>
 						<li><a href="Clientes.jsp" class="nav-link px-sm-0 px-2"> <i
-								class="fs-5 bi-person-check"></i><span 
+								class="fs-5 bi-person-check"></i><span
 								class="ms-1 d-none d-sm-inline">Clientes</span></a>
 						</li>
 						<li><a href="Clientes.jsp" class="nav-link px-sm-0 px-2"> <i
-								class="fs-5 bi-building"></i><span 
+								class="fs-5 bi-building"></i><span
 								class="ms-1 d-none d-sm-inline">Proveedores</span></a>
 						</li>
 						<li><a href="Productos.jsp" class="nav-link px-sm-0 px-2"> <i
-								class="fs-5 bi-grid"></i><span 
+								class="fs-5 bi-grid"></i><span
 								class="ms-1 d-none d-sm-inline">Productos</span></a>
 						</li>
 						<li><a href="#" class="nav-link px-sm-0 px-2"> <i
-								class="fs-5 bi-bag-check"></i><span 
+								class="fs-5 bi-bag-check"></i><span
 								class="ms-1 d-none d-sm-inline">Ventas</span>
 						</a></li>
 						<li><a href="#" class="nav-link px-sm-0 px-2"> <i
-								class="fs-5 bi-card-checklist"></i><span 
+								class="fs-5 bi-card-checklist"></i><span
 								class="ms-1 d-none d-sm-inline">Reportes</span>
 						</a></li>
 					</ul>

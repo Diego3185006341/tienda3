@@ -53,11 +53,11 @@ public class servletusuario extends HttpServlet {
 		UsuarioDTO recdatos;
 		
 		if(request.getParameter("btnins")!=null) {
-		d=Integer.parseInt(request.getParameter("doc"));
-		u=request.getParameter("usu");
-		c=request.getParameter("cla");
-		r=request.getParameter("rol");
-		e=request.getParameter("est");
+		d=Integer.parseInt(request.getParameter("cedula"));
+		u=request.getParameter("email");
+		c=request.getParameter("nombre");
+		r=request.getParameter("password");
+		e=request.getParameter("usuario");
 		
 		usdto=new UsuarioDTO(d, u, c, r, e);
 		usdao=new UsuarioDAO();
@@ -78,7 +78,7 @@ public class servletusuario extends HttpServlet {
 		//Acci�n para 	 consultar
 		 int doc;
 		 
-		 d=Integer.parseInt(request.getParameter("doc"));
+		 d=Integer.parseInt(request.getParameter("cedula"));
 		 usdto=new UsuarioDTO(d);
 		 usdao=new UsuarioDAO();
 		 recdatos=usdao.consultarusuario(usdto);
@@ -106,11 +106,11 @@ public class servletusuario extends HttpServlet {
 		if(request.getParameter("btnact")!=null) {
 			//Acci�n para consultar un usuraio
 		  boolean dat;
-		  d=Integer.parseInt(request.getParameter("doc"));
-		  u=request.getParameter("usu");
-		  c=request.getParameter("cla");
-		  r=request.getParameter("rol");
-		  e=request.getParameter("est");
+		  d=Integer.parseInt(request.getParameter("cedula"));
+		  u=request.getParameter("email");
+		  c=request.getParameter("nombre");
+		  r=request.getParameter("password");
+		  e=request.getParameter("usuario");
 		  usdto=new UsuarioDTO(d, u, c, r, e);
 		  usdao=new UsuarioDAO();
 		  dat=usdao.actualizar(usdto);
@@ -131,7 +131,7 @@ public class servletusuario extends HttpServlet {
 		if(request.getParameter("btneli")!=null) {
 			//Acci�n para eliminar
 			int y;
-			d=Integer.parseInt(request.getParameter("doc"));
+			d=Integer.parseInt(request.getParameter("cedula"));
 			 usdto=new UsuarioDTO(d);
 			 usdao=new UsuarioDAO();
 			 y=usdao.eliminar(usdto);

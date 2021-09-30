@@ -56,23 +56,23 @@ e=request.getParameter("es");
     </tr>
     <tr>
       <th scope="row">Cedula</th>
-      <td>Estado</td>
-      <td>Clave</td>
+      <td>email</td>
+      <td>nombre</td>
       <td width="11%" colspan="2" rowspan="5">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="text" name="doc"  value="<%=d%>" placeholder = " # CEDULA" /></th>
-      <td><input type="text" name="est"  value="<%=e%>"placeholder = "ESTADO" /></td>
-      <td><input type="password" name="cla"  value="<%=c%>"placeholder = "PASSWORD" /></td>
+      <th scope="row"><input type="text" name="cedula"  value="<%=d%>" placeholder = " # CEDULA" /></th>
+      <td><input type="text" name="email"  value="<%=u%>"placeholder = "email" /></td>
+      <td><input type="text" name="nombre"  value="<%=c%>"placeholder = "nombre" /></td>
       </tr>
     <tr>
-      <th width="36%" scope="row">Nombres - Apellidos</th>
-      <td width="28%">Cargo</td>
+      <th width="36%" scope="row">password</th>
+      <td width="28%">usuario</td>
       <td width="25%">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="text" name="usu"  value="<%=u%>" placeholder = " # NOMBRE COMPLETO" /></th>
-      <td><input type="text" name="rol"  value="<%=r%>"placeholder = "CARGO" /></td>
+      <th scope="row"><input type="password" name="password"  value="<%=r%>" placeholder = " # password" /></th>
+      <td><input type="text" name="usuario"  value="<%=e%>"placeholder = "usuario" /></td>
       <td>&nbsp;</td>
       </tr>
     <tr>
