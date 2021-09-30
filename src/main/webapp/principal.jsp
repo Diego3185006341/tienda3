@@ -48,7 +48,7 @@
 				         <li class="nav-item">
 				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="usuario.jsp">usuarios</a>
 				        </li>
-				         <li class="nav-item pull-right" >
+				         <li class="nav-item"align="right" >
 				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="usuario?tipo=cerrarSesion">cerrar sesion</a>
 				        </li>
 				        </ul>
