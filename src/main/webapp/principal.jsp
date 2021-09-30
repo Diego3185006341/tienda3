@@ -20,12 +20,12 @@
 		<!-- CAPA CONTENEDORA CABEZOTE WEB -->
 		<header id="header">
 			<jsp:include page="encabezado.jsp" />
-			Bienvenido ${sessionScope.usuario.nomusuario}
+			Bienvenido ${sessionScope.usuario.email_usuario}
 		</header>
 		
 		<!-- CAPA CONTENEDORA MENU DE NAVEGACION WEB -->
 		<nav id="nav">
-				<nav class="navbar navbar-expand-lg navbar-light bg-info">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 				  <div class="container-fluid">
 				    <a class="navbar-brand" href="#">Menu Tienda</a>
 				    <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -48,7 +48,9 @@
 				         <li class="nav-item">
 				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="usuario.jsp">usuarios</a>
 				        </li>
-				        
+				         <li class="nav-item pull-right" >
+				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="usuario?tipo=cerrarSesion">cerrar sesion</a>
+				        </li>
 				        </ul>
 				    </div>
 				  </div>
