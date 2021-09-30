@@ -16,7 +16,7 @@ public class ClientesDAO {
 	ClientesDTO cldo;
 
 @SuppressWarnings("null")
-public String insertarusuario(ClientesDTO cdo) {
+public String insertarcliente(ClientesDTO cdo) {
 
 		int x;
 		String dat="";
