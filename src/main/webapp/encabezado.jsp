@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Encabezado</title>
+
 </head>
 <body>
 	<a href="usuario?tipo=cerrarSesion">Cerrar sesión</a>

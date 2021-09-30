@@ -4,8 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>INICIO</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<title>Tienda genérica</title>
 <link rel="stylesheet" href="css/estilos_1.css">
 <link rel="stylesheet" href="css/estilos_2.css" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,42 +21,12 @@
 		<!-- CAPA CONTENEDORA CABEZOTE WEB -->
 		<header id="header">
 			<jsp:include page="encabezado.jsp" />
-			Bienvenido ${sessionScope.usuario.email_usuario}
+			Bienvenido ${sessionScope.usuario.nombre_usuario}
 		</header>
 		
 		<!-- CAPA CONTENEDORA MENU DE NAVEGACION WEB -->
-		<nav id="nav">
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				  <div class="container-fluid">
-				    <a class="navbar-brand" href="#">Menu Tienda</a>
-				    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				        <li class="nav-item">
-				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" aria-current="page" href="principal.jsp">Inicio</a>
-				        </li>
-				        <li class="nav-item">
-				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Productos.jsp">Productos</a>
-				        </li>
-				        <li class="nav-item">
-				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Empleados.jsp">Empleados</a>
-				        </li>
-				        <li class="nav-item">
-				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="Clientes.jsp">Clientes</a>
-				        </li>
-				        <li class="nav-item">
-				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="RegistrarVenta.jsp">Nueva Venta</a>
-				        </li>
-				         <li class="nav-item">
-				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="usuario.jsp">usuarios</a>
-				        </li>
-				         <li class="nav-item pull-right" >
-				          <a style="margin-left:10px; border:none" class="btn btn-outline-light" href="usuario?tipo=cerrarSesion">cerrar sesion</a>
-				        </li>
-				        </ul>
-				    </div>
-				  </div>
-			</nav>
-		</nav>
+		<jsp:include page="menu.jsp" />
+		
 		<!-- CAPA CONTENEDORA MENU IZQUIERDO WEB -->
 		<sidebar id="sidebar">
 			<p>Integrantes:</p>

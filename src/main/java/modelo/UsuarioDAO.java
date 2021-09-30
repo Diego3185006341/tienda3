@@ -138,7 +138,8 @@ public class UsuarioDAO {
 			while (rs.next()) {
 				dto = new UsuarioDTO(0);
 				dto.setCedula_usuario(rs.getInt("cedula_usuario"));
-				dto.setUsuario(rs.getString("usuario"));
+				dto.setNombre_usuario(rs.getString("nombre_usuario"));
+				dto.setUsuario(numusuario);
 				dto.setPassword(rs.getString("password"));
 			}
 

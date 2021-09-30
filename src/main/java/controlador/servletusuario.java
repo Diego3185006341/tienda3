@@ -68,7 +68,7 @@ public class servletusuario extends HttpServlet {
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Usuario no registrado");
-			response.sendRedirect("usuario.jsp");
+			response.sendRedirect("usuarios.jsp");
 		}
 		
 			
@@ -89,7 +89,7 @@ public class servletusuario extends HttpServlet {
 		 r=recdatos.getPassword();
 		 e=recdatos.getUsuario();
 		 
-		 response.sendRedirect("usuario.jsp?do="+doc+"&&us="+u+"&&cl="+c+"&&ro="+r+"&&es="+e);
+		 response.sendRedirect("usuarios.jsp?do="+doc+"&&us="+u+"&&cl="+c+"&&ro="+r+"&&es="+e);
 			
 			
 		}
@@ -116,12 +116,12 @@ public class servletusuario extends HttpServlet {
 		  dat=usdao.actualizar(usdto);
 			if(dat==true) {
 				JOptionPane.showMessageDialog(null, "El usuario se actualizo");
-				response.sendRedirect("usuario.jsp");
+				response.sendRedirect("usuarios.jsp");
 			}
 		  
 			else {
 				JOptionPane.showMessageDialog(null, "El usuario no se actualizo");
-			     response.sendRedirect("usuario.jsp");
+			     response.sendRedirect("usuarios.jsp");
 			
 			}
 			
@@ -137,12 +137,12 @@ public class servletusuario extends HttpServlet {
 			 y=usdao.eliminar(usdto);
 			 if(y>0) {
 			    JOptionPane.showMessageDialog(null, "El usuario fue eliminado");
-			    response.sendRedirect("usuario.jsp");
+			    response.sendRedirect("usuarios.jsp");
 				 
 			 }
 			 else {
 				 JOptionPane.showMessageDialog(null, "El usuario NO fue eliminado");
-				 response.sendRedirect("usuario.jsp");
+				 response.sendRedirect("usuarios.jsp");
 			 }
 			
 			

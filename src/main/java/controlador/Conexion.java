@@ -19,7 +19,7 @@ public class Conexion {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(null, "Conexion ok");
+				//JOptionPane.showMessageDialog(null, "Conexion ok");
 			
 			
 		} catch (ClassNotFoundException e) {
