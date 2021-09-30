@@ -13,19 +13,13 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-	
-	
-	
-<!-- CAPA CONTENEDORA PRINCIPAL -->
-<div id="main-content">
-		<!-- CAPA CONTENEDORA CABEZOTE WEB -->
-		<header id="header">
-			<jsp:include page="encabezado.jsp" />
-			Bienvenido ${sessionScope.usuario.nombre_usuario}
-		</header>
-		
-		<!-- CAPA CONTENEDORA MENU DE NAVEGACION WEB -->
-		<jsp:include page="menu.jsp" />
+	<div id="main-content">
+<header id="header">
+	<jsp:include page="encabezado.jsp" />
+	Bienvenido ${sessionScope.usuario.nombre_usuario}
+</header>
+<!-- CAPA CONTENEDORA MENU DE NAVEGACION WEB -->
+	<jsp:include page="menu.jsp" />
 		
 		<!-- CAPA CONTENEDORA MENU IZQUIERDO WEB -->
 		<sidebar id="sidebar">

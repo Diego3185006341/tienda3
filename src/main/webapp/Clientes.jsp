@@ -21,7 +21,7 @@
 	Bienvenido ${sessionScope.usuario.nombre_usuario}
 </header>
 <!-- CAPA CONTENEDORA MENU DE NAVEGACION WEB -->
-	<jsp:include page="menu.jsp" />
+	<jsp:include page="encabezado.jsp" />
 
 <%
 	
