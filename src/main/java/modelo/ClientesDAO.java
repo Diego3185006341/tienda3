@@ -14,10 +14,9 @@ public class ClientesDAO {
 	PreparedStatement ps;
 	ResultSet rs;
 	ClientesDTO cldo;
-
-@SuppressWarnings("null")
+	
 public String insertarcliente(ClientesDTO cdo) {
-
+		
 		int x;
 		String dat="";
 		try {
@@ -39,52 +38,52 @@ public String insertarcliente(ClientesDTO cdo) {
 			}
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Error al insertar"+e);
-
+			
 		}
-
-
+		
+		
 		return dat;
 	}
 
 
 	public  ClientesDTO consultarcliente(ClientesDTO cdo) {
-
+		
 	try {
 		ps=cnn.prepareStatement("SELECT * FROM clientes WHERE cedula_cliente=?");
 		ps.setInt(1, cdo.getCedula_cliente());
 		rs=ps.executeQuery();
 		if(rs.next()) {
 		   cldo=new ClientesDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
-
+					
 		}
-
-
+		
+		
 	} catch (SQLException e) {
-
+		
 		e.printStackTrace();
-	}
-
+	}	
+		
 	return cldo;
 	}
 
 
 
 	public int eliminar(ClientesDTO cdo) {
-
+		
 		int x=0;
 	  try {
 		ps=cnn.prepareStatement("DELETE FROM clientes WHERE cedula_cliente=? ");
 		ps.setInt(1, cdo.getCedula_cliente());
 		x=ps.executeUpdate();
-
+		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-
-	 return x;
+	  
+	 return x; 	
 	}
-
+		
 
 	public boolean actualizar(ClientesDTO cdo) {
 		boolean dat=false;
@@ -104,8 +103,8 @@ public String insertarcliente(ClientesDTO cdo) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		return dat;
+		
+		return dat;	
 	}
 	public ArrayList<ClientesDTO> consultar(){
 		ArrayList<ClientesDTO> lista=new  ArrayList<ClientesDTO>();
@@ -122,7 +121,7 @@ public String insertarcliente(ClientesDTO cdo) {
 		}
 		return lista;
 	}
-
-
-
+	
+	
+	
 }

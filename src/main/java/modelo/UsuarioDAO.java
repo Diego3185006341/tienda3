@@ -18,7 +18,7 @@ public class UsuarioDAO {
 	UsuarioDTO usu;
 
 	public String insertarusuario(UsuarioDTO us) {
-
+		
 		int x;
 		String dat="";
 		try {
@@ -34,58 +34,58 @@ public class UsuarioDAO {
 					if(x>0) {
 						dat="r";
 					}
-			}
+			}	
 			else {
 				dat="nr";
 			}
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Error al insertar"+e);
-
+			
 		}
-
-
+		
+		
 		return dat;
 	}
 
 
 	public  UsuarioDTO consultarusuario(UsuarioDTO us) {
-
+		
 	try {
 		ps=cnn.prepareStatement("SELECT * FROM usuarios WHERE cedula_usuario=?");
 		ps.setInt(1, us.getCedula_usuario());
 		rs=ps.executeQuery();
 		if(rs.next()) {
 		   usu=new UsuarioDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
-
+					
 		}
-
-
+		
+		
 	} catch (SQLException e) {
-
+		
 		e.printStackTrace();
-	}
-
+	}	
+		
 	return usu;
 	}
 
 
 
 	public int eliminar(UsuarioDTO us) {
-
+		
 		int x=0;
 	  try {
 		ps=cnn.prepareStatement("DELETE FROM usuarios WHERE cedula_usuario=? ");
 		ps.setInt(1, us.getCedula_usuario());
 		x=ps.executeUpdate();
-
+		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-
-	 return x;
+	  
+	 return x; 	
 	}
-
+		
 
 	public boolean actualizar(UsuarioDTO us) {
 		boolean dat=false;
@@ -106,8 +106,8 @@ public class UsuarioDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		return dat;
+		
+		return dat;	
 	}
 	public ArrayList<UsuarioDTO> consultar(){
 		ArrayList<UsuarioDTO> lista=new  ArrayList<UsuarioDTO>();
@@ -126,24 +126,23 @@ public class UsuarioDAO {
 	}
 	public UsuarioDTO iniciarSesion(String numusuario, String clave) {
 		UsuarioDTO dto = null;
-
-
+		
+		
 		try {
 			cnn = Conexion.conexiondb();
-			String sql = "SELECT U.cedula_usuario, U.nombre_usuario, U.password FROM usuarios U WHERE U.usuario = ? AND U.password = ?";
+			String sql = "SELECT U.cedula_usuario, U.usuario, U.password FROM usuarios U WHERE U.usuario = ? AND U.password = ?";
 			ps = cnn.prepareStatement(sql);
 			ps.setString(1, numusuario);
 			ps.setString(2, clave);
 			rs = ps.executeQuery();
-
+			
 			while (rs.next()) {
 				dto = new UsuarioDTO(0);
 				dto.setCedula_usuario(rs.getInt("cedula_usuario"));
-				dto.setNombre_usuario(rs.getString("nombre_usuario"));
-				dto.setUsuario(numusuario);
+				dto.setUsuario(rs.getString("usuario"));
 				dto.setPassword(rs.getString("password"));
 			}
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -151,11 +150,11 @@ public class UsuarioDAO {
 				if (rs != null) {
 					rs.close();
 				}
-
+				
 				if (ps != null) {
 					ps.close();
 				}
-
+				
 				if (cnn != null) {
 					cnn.close();
 				}
