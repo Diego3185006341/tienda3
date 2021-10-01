@@ -69,7 +69,7 @@ r=request.getParameter("ro");
 e=request.getParameter("es");
 }
 %>
-<div class= "usuario"">
+<div class= "usuario">
 <form action="servletcliente" method="post">
 
 <table width="55%" align="center" class="table">
@@ -93,9 +93,9 @@ e=request.getParameter("es");
       <td width="11%" colspan="2" rowspan="5">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="text" name="doc"  value="<%=d%>" placeholder = " # CEDULA" /></th>
-      <td><input type="text" name="est"  value="<%=e%>"placeholder = "direccion" /></td>
-      <td><input type="text" name="cla"  value="<%=c%>"placeholder = "email" /></td>
+      <th scope="row"><input type="text" name="cedula_cliente"  value="<%=d%>" placeholder = " # CEDULA" /></th>
+      <td><input type="text" name="direccion"  value="<%=u%>"placeholder = "direccion" /></td>
+      <td><input type="text" name="email"  value="<%=c%>"placeholder = "email" /></td>
       </tr>
     <tr>
       <th width="36%" scope="row">nombre cliente</th>
@@ -103,8 +103,8 @@ e=request.getParameter("es");
       <td width="25%">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="text" name="usu"  value="<%=u%>" placeholder = " # NOMBRE COMPLETO" /></th>
-      <td><input type="text" name="rol"  value="<%=r%>"placeholder = "telefono" /></td>
+      <th scope="row"><input type="text" name="nombre"  value="<%=r%>" placeholder = " # NOMBRE COMPLETO" /></th>
+      <td><input type="text" name="telefono"  value="<%=e%>"placeholder = "telefono" /></td>
       <td>&nbsp;</td>
       </tr>
     <tr>

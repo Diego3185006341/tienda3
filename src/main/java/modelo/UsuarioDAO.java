@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 import controlador.Conexion;
-import modelo.ClientesDTO;
+
 
 public class UsuarioDAO {
 	Conexion con=new Conexion();
@@ -91,12 +91,13 @@ public class UsuarioDAO {
 		boolean dat=false;
 		int x;
 		try {
-			ps=cnn.prepareStatement("UPDATE usuarios SET email_usuario=?,nombre_usuario=?password,=?,usuario=? WHERE cedula_usuario?");
-		    ps.setString(1, us.getEmail_usuario());
+			ps=cnn.prepareStatement("UPDATE usuarios SET email_usuario=?,nombre_usuario=?,password=?,usuario=? WHERE cedula_usuario=?");
+			ps.setInt(5, us.getCedula_usuario());
+			ps.setString(1, us.getEmail_usuario());
 		    ps.setString(2, us.getNombre_usuario());
 		    ps.setString(3, us.getPassword());
 		    ps.setString(4, us.getUsuario());
-		    ps.setInt(5, us.getCedula_usuario());
+		  
 		    x=ps.executeUpdate();
 		    if(x>0) {
 		    	dat=true;

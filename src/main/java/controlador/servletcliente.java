@@ -54,15 +54,15 @@ public class servletcliente extends HttpServlet {
 		ClientesDTO recdatos;
 		
 		if(request.getParameter("btnins")!=null) {
-		d=Integer.parseInt(request.getParameter("doc"));
-		u=request.getParameter("usu");
-		c=request.getParameter("cla");
-		r=request.getParameter("rol");
-		e=request.getParameter("est");
+		d=Integer.parseInt(request.getParameter("cedula_cliente"));
+		u=request.getParameter("direccion");
+		c=request.getParameter("email");
+		r=request.getParameter("nombre");
+		e=request.getParameter("telefono");
 		
 		cldto=new ClientesDTO(d, u, c, r, e);
 		cldao=new ClientesDAO();
-		res=cldao.insertarusuario(cldto);
+		res=cldao.insertarcliente(cldto);
 		if(res.equals("r")) {
 			JOptionPane.showMessageDialog(null, "Cliente registrdo");
 			response.sendRedirect("Clientes.jsp");
@@ -79,7 +79,7 @@ public class servletcliente extends HttpServlet {
 		//Acci�n para 	 consultar
 		 int doc;
 		 
-		 d=Integer.parseInt(request.getParameter("doc"));
+		 d=Integer.parseInt(request.getParameter("cedula_cliente"));
 		 cldto=new ClientesDTO(d);
 		 cldao=new ClientesDAO();
 		 recdatos=cldao.consultarcliente(cldto);
@@ -107,22 +107,22 @@ public class servletcliente extends HttpServlet {
 		if(request.getParameter("btnact")!=null) {
 			//Acci�n para consultar un usuraio
 		  boolean dat;
-		  d=Integer.parseInt(request.getParameter("doc"));
-		  u=request.getParameter("usu");
-		  c=request.getParameter("cla");
-		  r=request.getParameter("rol");
-		  e=request.getParameter("est");
+		  d=Integer.parseInt(request.getParameter("cedula_cliente"));
+		  u=request.getParameter("direccion");
+		  c=request.getParameter("email");
+		  r=request.getParameter("nombre");
+		  e=request.getParameter("telefono");
 		  cldto=new ClientesDTO(d, u, c, r, e);
 		  cldao=new ClientesDAO();
 		  dat=cldao.actualizar(cldto);
 			if(dat==true) {
 				JOptionPane.showMessageDialog(null, "El usuario se actualizo");
-				response.sendRedirect("usuario.jsp");
+				response.sendRedirect("Clientes.jsp");
 			}
 		  
 			else {
 				JOptionPane.showMessageDialog(null, "El usuario no se actualizo");
-			     response.sendRedirect("usuario.jsp");
+			     response.sendRedirect("Clientes.jsp");
 			
 			}
 			
@@ -132,18 +132,18 @@ public class servletcliente extends HttpServlet {
 		if(request.getParameter("btneli")!=null) {
 			//Acci�n para eliminar
 			int y;
-			d=Integer.parseInt(request.getParameter("doc"));
+			d=Integer.parseInt(request.getParameter("cedula_cliente"));
 			 cldto=new ClientesDTO(d);
 			 cldao=new ClientesDAO();
 			 y=cldao.eliminar(cldto);
 			 if(y>0) {
 			    JOptionPane.showMessageDialog(null, "El usuario fue eliminado");
-			    response.sendRedirect("usuario.jsp");
+			    response.sendRedirect("Clientes.jsp");
 				 
 			 }
 			 else {
 				 JOptionPane.showMessageDialog(null, "El usuario NO fue eliminado");
-				 response.sendRedirect("usuario.jsp");
+				 response.sendRedirect("Clientes.jsp");
 			 }
 			
 			

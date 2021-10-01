@@ -13,15 +13,15 @@ public class ClientesDAO {
 	Connection cnn=con.conexiondb();
 	PreparedStatement ps;
 	ResultSet rs;
-	ClientesDTO cdo;
+	ClientesDTO cldo;
 	
-public String insertarusuario(ClientesDTO cdo) {
+public String insertarcliente(ClientesDTO cdo) {
 		
 		int x;
 		String dat="";
 		try {
-			cdo=consultarcliente(cdo);
-			if(cdo==null) {
+			   cldo=consultarcliente(cdo);
+			if(cldo==null) {
 				ps=cnn.prepareStatement("INSERT INTO clientes VALUES(?,?,?,?,?)");
 				ps.setInt(1, cdo.getCedula_cliente());
 				ps.setString(2, cdo.getDireccion_cliente());
@@ -32,8 +32,8 @@ public String insertarusuario(ClientesDTO cdo) {
 					if(x>0) {
 						dat="r";
 					}
-			}	
-			else {
+			}
+				else {
 				dat="nr";
 			}
 		} catch (SQLException e) {
@@ -53,7 +53,7 @@ public String insertarusuario(ClientesDTO cdo) {
 		ps.setInt(1, cdo.getCedula_cliente());
 		rs=ps.executeQuery();
 		if(rs.next()) {
-		   cdo=new ClientesDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+		   cldo=new ClientesDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 					
 		}
 		
@@ -63,7 +63,7 @@ public String insertarusuario(ClientesDTO cdo) {
 		e.printStackTrace();
 	}	
 		
-	return cdo;
+	return cldo;
 	}
 
 
@@ -89,7 +89,7 @@ public String insertarusuario(ClientesDTO cdo) {
 		boolean dat=false;
 		int x;
 		try {
-			ps=cnn.prepareStatement("UPDATE clientes SET direccion_cliente=?,email_cliente=?nombre_cliente,=?,telefono_cliente=? WHERE cedula_cliente?");
+			ps=cnn.prepareStatement("UPDATE clientes SET direccion_cliente=?,email_cliente=?,nombre_cliente=?,telefono_cliente=? WHERE cedula_cliente=?");
 		    ps.setString(1, cdo.getDireccion_cliente());
 		    ps.setString(2, cdo.getEmail_cliente());
 		    ps.setString(3, cdo.getNombre_cliente());
@@ -112,8 +112,8 @@ public String insertarusuario(ClientesDTO cdo) {
 			ps=cnn.prepareStatement("SELECT * FROM clientes");
 			rs=ps.executeQuery();
 			while(rs.next()) {
-				cdo=new ClientesDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
-			   lista.add(cdo);
+				cldo=new ClientesDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+			   lista.add(cldo);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
