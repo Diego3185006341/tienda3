@@ -21,7 +21,7 @@ public String insertarcliente(ClientesDTO cdo) {
 		int x;
 		String dat="";
 		try {
-			//cldo=consultarcliente(cdo);
+			   cldo=consultarcliente(cdo);
 			if(cldo==null) {
 				ps=cnn.prepareStatement("INSERT INTO clientes VALUES(?,?,?,?,?)");
 				ps.setInt(1, cdo.getCedula_cliente());
@@ -64,7 +64,7 @@ public String insertarcliente(ClientesDTO cdo) {
 		e.printStackTrace();
 	}
 
-	return cdo;
+	return cldo;
 	}
 
 

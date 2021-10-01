@@ -47,7 +47,7 @@ e=request.getParameter("es");
       <td width="11%" colspan="2" rowspan="5">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="text" name="cedula"  value="<%=d%>" placeholder = " # CEDULA" /></th>
+      <th scope="row"><input type="text" name="cedula_cliente"  value="<%=d%>" placeholder = " # CEDULA" /></th>
       <td><input type="text" name="direccion"  value="<%=u%>"placeholder = "direccion" /></td>
       <td><input type="text" name="email"  value="<%=c%>"placeholder = "email" /></td>
       </tr>
