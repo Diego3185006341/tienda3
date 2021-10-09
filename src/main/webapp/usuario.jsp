@@ -71,7 +71,27 @@ e=request.getParameter("es");
 
 </form>
 </div>
+<%@page import="modelo.UsuarioDAO,modelo.*,java.util.*"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<h3>LISTADO DE USUARIOS</h3>  
+  
+<%  
+List<UsuarioDTO> lista=UsuarioDAO.consultar();  
+request.setAttribute("lista",lista);  
+%>  
+  
+<table  class="table">  
+<thead class="table-dark"><th>Identificación</th><th>email usuario</th><th>nombre usuario</th><th>usuario</th></thead>  
+<c:forEach items="${lista}" var="usu">  
+<tr><td><strong>${usu.getCedula_usuario()}</strong></td><td>${usu.getEmail_usuario()}</td><td>${usu.getNombre_usuario()}</td>  
+<td>${usu.getUsuario()}</td> 
 
+
+
+
+</tr>  
+</c:forEach>  
+</table>
 <!-- fin contenido  -->
 				
 				

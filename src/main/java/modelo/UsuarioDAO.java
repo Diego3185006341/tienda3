@@ -11,11 +11,11 @@ import controlador.Conexion;
 
 
 public class UsuarioDAO {
-	Conexion con=new Conexion();
-	Connection cnn=con.conexiondb();
-	PreparedStatement ps;
-	ResultSet rs;
-	UsuarioDTO usu;
+	static Conexion con=new Conexion();
+	static Connection cnn=con.conexiondb();
+	static PreparedStatement ps;
+	static ResultSet rs;
+	static UsuarioDTO usu;
 
 	public String insertarusuario(UsuarioDTO us) {
 		
@@ -109,7 +109,7 @@ public class UsuarioDAO {
 		
 		return dat;	
 	}
-	public ArrayList<UsuarioDTO> consultar(){
+	public static ArrayList<UsuarioDTO> consultar(){
 		ArrayList<UsuarioDTO> lista=new  ArrayList<UsuarioDTO>();
 		try {
 			ps=cnn.prepareStatement("SELECT * FROM usuarios");
@@ -145,7 +145,7 @@ public class UsuarioDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		} /*finally {
 			try {
 				if (rs != null) {
 					rs.close();
@@ -161,7 +161,7 @@ public class UsuarioDAO {
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-		}
+		}*/
 		return dto;
 	}
 
