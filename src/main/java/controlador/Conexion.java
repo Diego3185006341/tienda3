@@ -14,7 +14,8 @@ public class Conexion {
 			
 			
 				try {
-					cnn=DriverManager.getConnection("jdbc:mysql://localhost/tienda","root","diego785");
+					//cnn=DriverManager.getConnection("jdbc:mysql://localhost/tienda","root","diego785");
+					cnn=DriverManager.getConnection("jdbc:mysql://localhost:3306/db_ventas","user_ventas","yisaw4D8MA");
 			
 				} catch (SQLException e) {
 					e.printStackTrace();

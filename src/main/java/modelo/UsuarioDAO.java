@@ -30,6 +30,9 @@ public class UsuarioDAO {
 				ps.setString(3, us.getNombre_usuario());
 				ps.setString(4, us.getPassword());
 				ps.setString(5, us.getUsuario());
+				
+				
+				
 				x=ps.executeUpdate();
 					if(x>0) {
 						dat="r";
@@ -49,6 +52,8 @@ public class UsuarioDAO {
 
 
 	public  UsuarioDTO consultarusuario(UsuarioDTO us) {
+		
+		UsuarioDTO usu = null;
 		
 	try {
 		ps=cnn.prepareStatement("SELECT * FROM usuarios WHERE cedula_usuario=?");
@@ -130,7 +135,7 @@ public class UsuarioDAO {
 		
 		try {
 			cnn = Conexion.conexiondb();
-			String sql = "SELECT U.cedula_usuario, U.usuario, U.password FROM usuarios U WHERE U.usuario = ? AND U.password = ?";
+			String sql = "SELECT U.cedula_usuario, U.usuario, U.password, U.nombre_usuario FROM usuarios U WHERE U.usuario = ? AND U.password = ?";
 			ps = cnn.prepareStatement(sql);
 			ps.setString(1, numusuario);
 			ps.setString(2, clave);
@@ -141,6 +146,7 @@ public class UsuarioDAO {
 				dto.setCedula_usuario(rs.getInt("cedula_usuario"));
 				dto.setUsuario(rs.getString("usuario"));
 				dto.setPassword(rs.getString("password"));
+				dto.setNombre_usuario(rs.getString("nombre_usuario"));
 			}
 			
 		} catch (Exception e) {
