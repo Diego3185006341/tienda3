@@ -49,6 +49,7 @@ public class UsuarioDAO {
 
 
 	public  UsuarioDTO consultarusuario(UsuarioDTO us) {
+		UsuarioDTO usu=null;
 		
 	try {
 		ps=cnn.prepareStatement("SELECT * FROM usuarios WHERE cedula_usuario=?");
