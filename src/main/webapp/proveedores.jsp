@@ -9,7 +9,7 @@
 <!-- inicio de contenido  -->
 
 
-		<%
+<%
 	
 //Conexion con=new Conexion();
 //con.conexiondb();
