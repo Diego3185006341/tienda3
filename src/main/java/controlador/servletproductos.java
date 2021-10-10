@@ -18,9 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import javax.swing.JOptionPane;
 
+import com.opencsv.CSVReader;
 
-
-import au.com.bytecode.opencsv.CSVReader;
 import modelo.ProductosDAO;
 import modelo.ProductosDTO;
 import modelo.ProveedoresDAO;
@@ -157,25 +156,35 @@ public class servletproductos extends HttpServlet {
 		}
 		if(request.getParameter("btn_archivo")!=null) {
 				
-			
-			Part filePart = request.getPart("file"); 
-			        InputStream fileContent = filePart.getInputStream();
+	        
+	        Part filePart = request.getPart("file"); 
+	        InputStream fileContent = filePart.getInputStream();
 
-			        Reader in = new InputStreamReader(fileContent);
+	        Reader in = new InputStreamReader(fileContent);
 
-			        CSVReader reader;
-			        Iterator<String[]> iterator;
-			
+	        CSVReader reader;
+	        Iterator<String[]> iterator;
+
 	        try {
 
 	            reader = new CSVReader(new InputStreamReader(fileContent));
-	            String[] lineInArray;
-	            while ((lineInArray = reader.readNext()) != null) {
-	         
-	                JOptionPane.showMessageDialog(null, lineInArray[0] + lineInArray[1] + "etc...");
+	            iterator = reader.iterator();
+
+	            String[] row = iterator.next();
+
+	            Map<Object, String> map = new HashMap<>();
+	            for(int i = 0; i < row.length; i++){
+	                map.put(i, row[i]);
+	                
+	                JOptionPane.showMessageDialog(null, row[i]);
+
+	                //Do rest of the code
+
 	            }
 
-	        }catch(Exception ex) {}
+	        }catch(Exception e1) {
+	        	JOptionPane.showMessageDialog(null, "Error: " + e1.getMessage());
+	        }
 
 	        in.close();
 			

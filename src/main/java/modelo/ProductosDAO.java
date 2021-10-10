@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import controlador.Conexion;
 public class ProductosDAO {
-	Conexion con=new Conexion();
-	Connection cnn=con.conexiondb();
-	PreparedStatement ps;
-	ResultSet rs;
-	ProductosDTO pdtos;
+	static Conexion con=new Conexion();
+	static Connection cnn=con.conexiondb();
+	static PreparedStatement ps;
+	static ResultSet rs;
+	static ProductosDTO pdtos;
 	
 public String insertarProductos(ProductosDTO pdo) {
 		
@@ -48,7 +48,7 @@ public String insertarProductos(ProductosDTO pdo) {
 
 
 	public  ProductosDTO consultarProductos(ProductosDTO pdo) {
-		
+		ProductosDTO pdtos = null;
 	try {
 		ps=cnn.prepareStatement("SELECT * FROM productos WHERE codigo_producto=?");
 		ps.setInt(1, pdo.getCodigo_productos());
@@ -108,7 +108,7 @@ public String insertarProductos(ProductosDTO pdo) {
 		
 		return dat;	
 	}
-	public ArrayList<ProductosDTO> consultar(){
+	public static ArrayList<ProductosDTO> consultar(){
 		ArrayList<ProductosDTO> lista=new  ArrayList<ProductosDTO>();
 		try {
 			ps=cnn.prepareStatement("SELECT * FROM productos");

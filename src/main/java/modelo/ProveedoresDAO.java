@@ -10,11 +10,11 @@ import javax.swing.JOptionPane;
 import controlador.Conexion;
 public class ProveedoresDAO {
 
-	Conexion con=new Conexion();
-	Connection cnn=con.conexiondb();
-	PreparedStatement ps;
-	ResultSet rs;
-	ProveedoresDTO pvdo;
+	static Conexion con=new Conexion();
+	static Connection cnn=con.conexiondb();
+	static PreparedStatement ps;
+	static ResultSet rs;
+	static ProveedoresDTO pvdo;
 	
 public String insertarproveedores(ProveedoresDTO pdo) {
 		
@@ -48,7 +48,7 @@ public String insertarproveedores(ProveedoresDTO pdo) {
 
 
 	public  ProveedoresDTO consultarproveedores(ProveedoresDTO pdo) {
-		
+		ProveedoresDTO pvdo = null;
 	try {
 		ps=cnn.prepareStatement("SELECT * FROM proveedores WHERE nitproveedor=?");
 		ps.setInt(1, pdo.getnitproveedor());
@@ -107,10 +107,10 @@ public String insertarproveedores(ProveedoresDTO pdo) {
 		
 		return dat;	
 	}
-	public ArrayList<ProveedoresDTO> consultar(){
+	public static ArrayList<ProveedoresDTO> consultar(){
 		ArrayList<ProveedoresDTO> lista=new  ArrayList<ProveedoresDTO>();
 		try {
-			ps=cnn.prepareStatement("SELECT * FROM proveedor");
+			ps=cnn.prepareStatement("SELECT * FROM proveedores");
 			rs=ps.executeQuery();
 			while(rs.next()) {
 				pvdo=new ProveedoresDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));

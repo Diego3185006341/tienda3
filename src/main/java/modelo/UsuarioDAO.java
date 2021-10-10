@@ -52,7 +52,6 @@ public class UsuarioDAO {
 
 
 	public  UsuarioDTO consultarusuario(UsuarioDTO us) {
-		UsuarioDTO usu=null;
 		
 		UsuarioDTO usu = null;
 		

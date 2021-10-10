@@ -42,22 +42,22 @@ e=request.getParameter("es");
     <tr>
       <th scope="row">Nit Proveedor</th>
       <td>Ciudad Proveedor</td>
-      <td>Direccion Proveedor</td>
+      <td>Dirección Proveedor</td>
       <td width="11%" colspan="2" rowspan="5">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="text" name="nitproveedor"  value="<%=d%>" placeholder = " # CEDULA" /></th>
-      <td><input type="text" name="ciudad_proveedor"  value="<%=u%>"placeholder = "ciudad_proveedor" /></td>
-      <td><input type="text" name="direccion_proveedor"  value="<%=c%>"placeholder = "direccion_proveedor" /></td>
+      <th scope="row"><input type="text" name="nitproveedor"  value="<%=d%>" placeholder = "NIT" /></th>
+      <td><input type="text" name="ciudad_proveedor"  value="<%=u%>"placeholder = "Ciudad" /></td>
+      <td><input type="text" name="direccion_proveedor"  value="<%=c%>"placeholder = "Dirección" /></td>
       </tr>
     <tr>
-      <th width="36%" scope="row">nombre cliente</th>
-      <td width="28%">telefono cliente</td>
+      <th width="36%" scope="row">Nombre Proveedor</th>
+      <td width="28%">Teléfono Proveedor</td>
       <td width="25%">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="text" name="nombre_proveedor"  value="<%=r%>" placeholder = " # NOMBRE COMPLETO" /></th>
-      <td><input type="text" name="telefono_proveedor"  value="<%=e%>"placeholder = "telefono_proveedor" /></td>
+      <th scope="row"><input type="text" name="nombre_proveedor"  value="<%=r%>" placeholder = "NOMBRE" /></th>
+      <td><input type="text" name="telefono_proveedor"  value="<%=e%>"placeholder = "Teléfono" /></td>
       <td>&nbsp;</td>
       </tr>
     <tr>
@@ -72,6 +72,25 @@ e=request.getParameter("es");
 </form>
 </div>
 		
+		
+<%@page import="modelo.ProveedoresDAO,modelo.*,java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<h3>LISTADO DE PROVEEDORES</h3>
+  
+<%
+List<ProveedoresDTO> lista=ProveedoresDAO.consultar();
+request.setAttribute("lista",lista);
+%>
+
+<table  class="table">
+<thead class="table-dark"><th>Nit</th><th>Nombre</th><th>Ciudad</th><th>Dirección</th><th>Teléfono</th></thead>
+<c:forEach items="${lista}" var="pvdo">
+<tr><td><strong>${pvdo.getnitproveedor()}</strong></td><td>${pvdo.getnombre_proveedor()}</td><td>${pvdo.getciudad_proveedor()}</td>
+<td>${pvdo.getdireccion_proveedor()}</td><td>${pvdo.gettelefono_proveedor()}</td>
+
+</tr>
+</c:forEach>
+</table>
 		
 <!-- fin contenido  -->
 				
