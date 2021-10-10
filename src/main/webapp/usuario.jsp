@@ -122,9 +122,6 @@ request.setAttribute("lista",lista);
 <tr><td><strong>${usu.getCedula_usuario()}</strong></td><td>${usu.getEmail_usuario()}</td><td>${usu.getNombre_usuario()}</td>  
 <td>${usu.getUsuario()}</td> 
 
-
-
-
 </tr>  
 </c:forEach>  
 </table>
