@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="modelo.UsuarioDAO,modelo.*,java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!-- CONTENEDOR HEADER Y MENU DE NAVEGACION WEB -->
 <jsp:include page="header.jsp" />
 
 
 <!-- inicio de contenido  -->
-		
+
 
 <%
 //Conexion con=new Conexion();
@@ -46,7 +48,7 @@ e=request.getParameter("es");
       <td width="11%" colspan="2" rowspan="5">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="text" name="cedula"  value="<%=d%>" placeholder = " # CEDULA" /></th>
+      <th scope="row"><input type="number" name="cedula"  value="<%=d%>" placeholder = " # CEDULA" /></th>
       <td><input type="text" name="email"  value="<%=u%>"placeholder = "email" /></td>
       <td><input type="text" name="nombre"  value="<%=c%>"placeholder = "nombre" /></td>
       </tr>
@@ -72,9 +74,61 @@ e=request.getParameter("es");
 </form>
 </div>
 
+<div class="row">
+
+	<c:set var="mensaje_error" value="${requestScope.mensaje_error}" />
+	<c:if test="${not empty mensaje_error}">
+		<div class="alert alert-danger alert-dismissible">
+			<p>${mensaje_error}</p>
+		</div>
+	</c:if>
+
+</div>
+
+<div class="row">
+
+	<c:set var="mensaje_success" value="${requestScope.mensaje_success}" />
+	<c:if test="${not empty mensaje_success}">
+		<div class="alert alert-success alert-dismissible">
+			<p>${mensaje_success}</p>
+		</div>
+	</c:if>
+
+</div>
+
+<div class="row">
+
+	<c:set var="mensaje_warning" value="${requestScope.mensaje_warning}" />
+	<c:if test="${not empty mensaje_warning}">
+		<div class="alert alert-warning alert-dismissible">
+			<p>${mensaje_warning}</p>
+		</div>
+	</c:if>
+
+</div>
+
+
+
+<%@page import="modelo.UsuarioDAO,modelo.*,java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<h3>LISTADO DE USUARIOS</h3>
+  
+<%
+List<UsuarioDTO> lista=UsuarioDAO.consultar();
+request.setAttribute("lista",lista);
+%>
+
+<table  class="table">
+<thead class="table-dark"><th>Identificación</th><th>email usuario</th><th>nombre usuario</th><th>usuario</th></thead>
+<c:forEach items="${lista}" var="usu">
+<tr><td><strong>${usu.getCedula_usuario()}</strong></td><td>${usu.getEmail_usuario()}</td><td>${usu.getNombre_usuario()}</td>
+<td>${usu.getUsuario()}</td>
+
+</tr>
+</c:forEach>
+</table>
 <!-- fin contenido  -->
-				
-				
+
+
 <!-- CONTENEDOR FOOTER -->
 <jsp:include page="footer.jsp" />
-	

@@ -40,36 +40,58 @@ public class servletusuario extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
 		
-		String u,c,r,e;
-		int d;
-		String res;
+		if(request.getSession(false) == null) {
+	       response.sendRedirect("index.jsp");
+	       return ;
+	    }
+		
+		
+		String email_usuario,nombre_usuario,password,usuario;
+		int cedula_usuario;
+		String res = null;
 		UsuarioDTO usdto;
 		UsuarioDAO usdao;
 		UsuarioDTO recdatos;
 		
 		if(request.getParameter("btnins")!=null) {
-		d=Integer.parseInt(request.getParameter("cedula"));
-		u=request.getParameter("email");
-		c=request.getParameter("nombre");
-		r=request.getParameter("password");
-		e=request.getParameter("usuario");
+			
+			if(request.getParameter("cedula")!="" 
+					&& request.getParameter("usuario")!=""
+					&& request.getParameter("password")!=""
+					&& request.getParameter("email")!=""
+					&& request.getParameter("nombre")!="") {
+				
+				cedula_usuario=Integer.parseInt(request.getParameter("cedula"));
+				email_usuario=request.getParameter("email");
+				nombre_usuario=request.getParameter("nombre");
+				password=request.getParameter("password");
+				usuario=request.getParameter("usuario");
+				
+				usdto=new UsuarioDTO(cedula_usuario, email_usuario, nombre_usuario, password, usuario);
+				usdao=new UsuarioDAO();
+				res=usdao.insertarusuario(usdto);
+				
+				if(res.equals("r")) {
+					request.setAttribute("mensaje_success", "Usuario registrado correctamente!");
+					request.getRequestDispatcher("usuario.jsp").forward(request, response);
+				}
+				else {
+					request.setAttribute("mensaje_error", "Usuario no registrado");
+					request.getRequestDispatcher("usuario.jsp").forward(request, response);
+				}
+				
+			}else {
+				request.setAttribute("mensaje_warning", "Ingrese los valores requeridos");
+				request.getRequestDispatcher("usuario.jsp").forward(request, response);
+			}
 		
-		usdto=new UsuarioDTO(d, u, c, r, e);
-		usdao=new UsuarioDAO();
-		res=usdao.insertarusuario(usdto);
-		if(res.equals("r")) {
-			JOptionPane.showMessageDialog(null, "Usuario registrdo");
-			response.sendRedirect("usuario.jsp");
-		}
-		else {
-			JOptionPane.showMessageDialog(null, "Usuario no registrado");
-			response.sendRedirect("usuario.jsp");
-		}
+		
 		
 			
 		}
@@ -78,52 +100,73 @@ public class servletusuario extends HttpServlet {
 		//Acciï¿½n para 	 consultar
 		 int doc;
 		 
-		 d=Integer.parseInt(request.getParameter("cedula"));
-		 usdto=new UsuarioDTO(d);
-		 usdao=new UsuarioDAO();
-		 recdatos=usdao.consultarusuario(usdto);
+		 if(request.getParameter("cedula")!="") {
+			 
+			 cedula_usuario=Integer.parseInt(request.getParameter("cedula"));
+			 usdto=new UsuarioDTO(cedula_usuario);
+			 usdao=new UsuarioDAO();
+			 recdatos=usdao.consultarusuario(usdto);
+			 
+			 
+			 if(recdatos!=null) {
+				 
+				 doc=recdatos.getCedula_usuario();
+				 
+				 email_usuario=recdatos.getEmail_usuario();
+				 nombre_usuario=recdatos.getNombre_usuario();
+				 password=recdatos.getPassword();
+				 usuario=recdatos.getUsuario();
+				 
+				 response.sendRedirect("usuario.jsp?do="+doc+"&&us="+email_usuario+"&&cl="+nombre_usuario+"&&ro="+password+"&&es="+usuario);
+
+			 }else {
+				 request.setAttribute("mensaje_warning", "No existen datos para el número de cédula ingresado.");
+				 request.getRequestDispatcher("usuario.jsp").forward(request, response);
+			 }
+			 
+			 
+		 }else {
+			 request.setAttribute("mensaje_warning", "Ingrese un número de cédula para consultar.");
+			 request.getRequestDispatcher("usuario.jsp").forward(request, response);
+
+		 }
 		 
-		 doc=recdatos.getCedula_usuario();
-		 u=recdatos.getEmail_usuario();
-		 c=recdatos.getNombre_usuario();
-		 r=recdatos.getPassword();
-		 e=recdatos.getUsuario();
-		 
-		 response.sendRedirect("usuario.jsp?do="+doc+"&&us="+u+"&&cl="+c+"&&ro="+r+"&&es="+e);
-			
+		 	
 			
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		if(request.getParameter("btnact")!=null) {
 			//Acciï¿½n para consultar un usuraio
 		  boolean dat;
-		  d=Integer.parseInt(request.getParameter("cedula"));
-		  u=request.getParameter("email");
-		  c=request.getParameter("nombre");
-		  r=request.getParameter("password");
-		  e=request.getParameter("usuario");
-		  usdto=new UsuarioDTO(d, u, c, r, e);
-		  usdao=new UsuarioDAO();
-		  dat=usdao.actualizar(usdto);
-			if(dat==true) {
-				JOptionPane.showMessageDialog(null, "El usuario se actualizo");
-				response.sendRedirect("usuario.jsp");
-			}
 		  
-			else {
-				JOptionPane.showMessageDialog(null, "El usuario no se actualizo");
-			     response.sendRedirect("usuario.jsp");
-			
-			}
+		  if(request.getParameter("cedula")!="") {
+				cedula_usuario=Integer.parseInt(request.getParameter("cedula"));
+				email_usuario=request.getParameter("email");
+				nombre_usuario=request.getParameter("nombre");
+				password=request.getParameter("password");
+				usuario=request.getParameter("usuario");
+				usdto=new UsuarioDTO(cedula_usuario, email_usuario, nombre_usuario, password, usuario);
+				usdao=new UsuarioDAO();
+				dat=usdao.actualizar(usdto);
+				if(dat==true) {
+					request.setAttribute("mensaje_success", "Usuario actualizado correctamente!");
+					request.getRequestDispatcher("usuario.jsp").forward(request, response);
+				}
+				else {
+					request.setAttribute("mensaje_error", "Usuario no actualizado");
+					request.getRequestDispatcher("usuario.jsp").forward(request, response);
+				
+				}
+				
+		  }else {
+			  
+			request.setAttribute("mensaje_warning", "Ingrese los valores requeridos");
+			request.getRequestDispatcher("usuario.jsp").forward(request, response);
+			  
+		  }
+		  
 			
 			
 		}
@@ -131,19 +174,28 @@ public class servletusuario extends HttpServlet {
 		if(request.getParameter("btneli")!=null) {
 			//Acciï¿½n para eliminar
 			int y;
-			d=Integer.parseInt(request.getParameter("cedula"));
-			 usdto=new UsuarioDTO(d);
-			 usdao=new UsuarioDAO();
-			 y=usdao.eliminar(usdto);
-			 if(y>0) {
-			    JOptionPane.showMessageDialog(null, "El usuario fue eliminado");
-			    response.sendRedirect("usuario.jsp");
-				 
-			 }
-			 else {
-				 JOptionPane.showMessageDialog(null, "El usuario NO fue eliminado");
-				 response.sendRedirect("usuario.jsp");
-			 }
+			
+			if(request.getParameter("cedula")!="") {
+				 cedula_usuario=Integer.parseInt(request.getParameter("cedula"));
+				 usdto=new UsuarioDTO(cedula_usuario);
+				 usdao=new UsuarioDAO();
+				 y=usdao.eliminar(usdto);
+				 if(y>0) {
+				    request.setAttribute("mensaje_success", "Usuario eliminado correctamente!");
+					request.getRequestDispatcher("usuario.jsp").forward(request, response);
+					 
+				 }
+				 else {
+					 request.setAttribute("mensaje_error", "El usuario NO fue eliminado");
+					 request.getRequestDispatcher("usuario.jsp").forward(request, response);
+				 }
+			}else {
+				
+				request.setAttribute("mensaje_warning", "Ingrese un número de cédula para eliminar.");
+				 request.getRequestDispatcher("usuario.jsp").forward(request, response);
+				
+			}
+			
 			
 			
 			
@@ -155,10 +207,6 @@ public class servletusuario extends HttpServlet {
 		 try ( PrintWriter out = response.getWriter()) {
 		 out.println("<select> <option> " + request.getContextPath() + "</option></select>");
 		 }
-		
-		
-		
-		
 		
 		
 	}

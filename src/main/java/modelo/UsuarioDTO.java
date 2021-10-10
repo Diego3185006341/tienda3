@@ -27,6 +27,9 @@ package modelo;
 		}
 
 
+		public void setCedula_usuario(int cedula_usuario) {
+			this.cedula_usuario = cedula_usuario;
+		}
 
 
 
@@ -38,10 +41,7 @@ package modelo;
 
 
 
-		public void setCedula_usuario(int cedula_usuario) {
-			this.cedula_usuario = cedula_usuario;
-		}
-
+		
 
 
 

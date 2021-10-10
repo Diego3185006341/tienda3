@@ -16,4 +16,3 @@
 	<script src="js/tienda_login.js"></script>
 </body>
 </html>
-    

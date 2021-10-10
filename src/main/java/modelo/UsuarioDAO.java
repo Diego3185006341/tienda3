@@ -11,11 +11,11 @@ import controlador.Conexion;
 
 
 public class UsuarioDAO {
-	Conexion con=new Conexion();
-	Connection cnn=con.conexiondb();
-	PreparedStatement ps;
-	ResultSet rs;
-	UsuarioDTO usu;
+	static Conexion con=new Conexion();
+	static Connection cnn=con.conexiondb();
+	static PreparedStatement ps;
+	static ResultSet rs;
+	static UsuarioDTO usu;
 
 	public String insertarusuario(UsuarioDTO us) {
 		
@@ -30,6 +30,9 @@ public class UsuarioDAO {
 				ps.setString(3, us.getNombre_usuario());
 				ps.setString(4, us.getPassword());
 				ps.setString(5, us.getUsuario());
+				
+				
+				
 				x=ps.executeUpdate();
 					if(x>0) {
 						dat="r";
@@ -49,6 +52,8 @@ public class UsuarioDAO {
 
 
 	public  UsuarioDTO consultarusuario(UsuarioDTO us) {
+		
+		UsuarioDTO usu = null;
 		
 	try {
 		ps=cnn.prepareStatement("SELECT * FROM usuarios WHERE cedula_usuario=?");
@@ -109,7 +114,7 @@ public class UsuarioDAO {
 		
 		return dat;	
 	}
-	public ArrayList<UsuarioDTO> consultar(){
+	public static ArrayList<UsuarioDTO> consultar(){
 		ArrayList<UsuarioDTO> lista=new  ArrayList<UsuarioDTO>();
 		try {
 			ps=cnn.prepareStatement("SELECT * FROM usuarios");
@@ -130,7 +135,7 @@ public class UsuarioDAO {
 		
 		try {
 			cnn = Conexion.conexiondb();
-			String sql = "SELECT U.cedula_usuario, U.usuario, U.password FROM usuarios U WHERE U.usuario = ? AND U.password = ?";
+			String sql = "SELECT U.cedula_usuario, U.usuario, U.password, U.nombre_usuario FROM usuarios U WHERE U.usuario = ? AND U.password = ?";
 			ps = cnn.prepareStatement(sql);
 			ps.setString(1, numusuario);
 			ps.setString(2, clave);
@@ -141,11 +146,12 @@ public class UsuarioDAO {
 				dto.setCedula_usuario(rs.getInt("cedula_usuario"));
 				dto.setUsuario(rs.getString("usuario"));
 				dto.setPassword(rs.getString("password"));
+				dto.setNombre_usuario(rs.getString("nombre_usuario"));
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		} /*finally {
 			try {
 				if (rs != null) {
 					rs.close();
@@ -161,7 +167,7 @@ public class UsuarioDAO {
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-		}
+		}*/
 		return dto;
 	}
 

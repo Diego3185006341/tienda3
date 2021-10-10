@@ -36,7 +36,7 @@ public class Servletlogin extends HttpServlet {
 		UsuarioDTO dto = dao.iniciarSesion(nombre, clave);
 
 		if (dto == null) {
-			request.setAttribute("mensaje", "Error nombre de usuario y/o clave");
+			request.setAttribute("mensaje", "Nombre de usuario o contraseña incorrecta!");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} else {
 			HttpSession sesion = request.getSession();
@@ -48,7 +48,7 @@ public class Servletlogin extends HttpServlet {
 	private void cerrarSesion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sesion = request.getSession();
 		sesion.invalidate();
-		request.setAttribute("mensaje", "Iniciar sesiÃ³n");
+		//request.setAttribute("mensaje", "Iniciar sesión");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 }

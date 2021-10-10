@@ -9,11 +9,11 @@ import javax.swing.JOptionPane;
 import controlador.Conexion;
 public class ClientesDAO {
 
-	Conexion con=new Conexion();
-	Connection cnn=con.conexiondb();
-	PreparedStatement ps;
-	ResultSet rs;
-	ClientesDTO cldo;
+	static Conexion con=new Conexion();
+	static Connection cnn=con.conexiondb();
+	static PreparedStatement ps;
+	static ResultSet rs;
+	static ClientesDTO cldo;
 	
 public String insertarcliente(ClientesDTO cdo) {
 		
@@ -47,7 +47,7 @@ public String insertarcliente(ClientesDTO cdo) {
 
 
 	public  ClientesDTO consultarcliente(ClientesDTO cdo) {
-		
+		ClientesDTO cldo = null;
 	try {
 		ps=cnn.prepareStatement("SELECT * FROM clientes WHERE cedula_cliente=?");
 		ps.setInt(1, cdo.getCedula_cliente());
@@ -106,7 +106,7 @@ public String insertarcliente(ClientesDTO cdo) {
 		
 		return dat;	
 	}
-	public ArrayList<ClientesDTO> consultar(){
+	public static ArrayList<ClientesDTO> consultar(){
 		ArrayList<ClientesDTO> lista=new  ArrayList<ClientesDTO>();
 		try {
 			ps=cnn.prepareStatement("SELECT * FROM clientes");

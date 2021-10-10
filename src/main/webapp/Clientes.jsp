@@ -71,6 +71,26 @@ e=request.getParameter("es");
 </form>
 </div>
 
+
+<%@page import="modelo.ClientesDAO,modelo.*,java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<h3>LISTADO DE CLIENTES</h3>
+  
+<%
+List<ClientesDTO> lista=ClientesDAO.consultar();
+request.setAttribute("lista",lista);
+%>
+
+<table  class="table">
+<thead class="table-dark"><th>Identificación</th><th>Nombre</th><th>Email</th><th>Dirección</th><th>Teléfono</th></thead>
+<c:forEach items="${lista}" var="cldo">
+<tr><td><strong>${cldo.getCedula_cliente()}</strong></td><td>${cldo.getNombre_cliente()}</td><td>${cldo.getEmail_cliente()}</td>
+<td>${cldo.getDireccion_cliente()}</td><td>${cldo.getTelefono_cliente()}</td>
+
+</tr>
+</c:forEach>
+</table>
+
 <!-- fin contenido  -->
 				
 				
