@@ -19,6 +19,9 @@ import javax.swing.JOptionPane;
 
 import com.opencsv.CSVReader;
 
+import modelo.ProductosDAO;
+import modelo.ProductosDTO;
+
 
 
 
@@ -45,6 +48,15 @@ public class servletproductosload extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		ProductosDTO pdto;
+		ProductosDTO recdatos;
+		ProductosDAO pdao = new ProductosDAO();
+		String res;
+		int procesados = 0;
+		int insertados = 0;
+		int actualizados = 0;
+		
 		Part filePart = request.getPart("file"); 
         InputStream fileContent = filePart.getInputStream();
 
@@ -57,22 +69,62 @@ public class servletproductosload extends HttpServlet {
 
             reader = new CSVReader(new InputStreamReader(fileContent));
             iterator = reader.iterator();
-
-            String[] row = iterator.next();
-
-            Map<Object, String> map = new HashMap<>();
-            for(int i = 0; i < row.length; i++){
-                map.put(i, row[i]);
-
-                JOptionPane.showMessageDialog(null, row[i]);
-
+            
+            while ( iterator.hasNext() ) {
+            	String[] row = iterator.next();
+            	
+            	String line = row[0];
+            	
+            	line.replace("\"", "");
+            	
+            	String[] lprod = line.split(";", -1);
+            	
+            	if(isNumeric(lprod[0])) {
+            		pdto=new ProductosDTO(Integer.parseInt(lprod[0]), Double.parseDouble(lprod[1]), Integer.parseInt(lprod[2]), lprod[3], Double.parseDouble(lprod[4]),Double.parseDouble(lprod[5]));
+                	
+            		recdatos=pdao.consultarProductos(pdto);
+            		
+            		if(recdatos==null) {
+            			res=pdao.insertarProductos(pdto);
+            			if(res.equals("r")) {
+            				insertados = insertados+1;
+            			}
+            		}else {
+            			if(recdatos!=pdto) {
+            				if(pdao.actualizar(pdto)) {
+                				actualizados = actualizados+1;
+                			}
+            			}
+            			
+            		}
+            	}
+            	
+            	procesados = procesados+1;
+            	
             }
+
+            
 
         }catch(Exception ex) {
         	JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
         }
 
         in.close();
+        
+        System.out.println("procesados: " + procesados);
+    	System.out.println("insertados: " + insertados);
+    	System.out.println("actualizado: " + actualizados);
+        
+        response.sendRedirect("productos.jsp");
 	}
+	
+	public static boolean isNumeric(String str) { 
+		  try {  
+		    Double.parseDouble(str);  
+		    return true;
+		  } catch(NumberFormatException e){  
+		    return false;  
+		  }  
+		}
 
 }
