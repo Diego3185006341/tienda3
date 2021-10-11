@@ -39,7 +39,7 @@ e=request.getParameter("es");
       <th colspan="5" scope="row"><input type="submit" name="btnins" value="Registrar" class="btn btn-primary" />
         <input type="submit" name="btncon" value="Consultar" class="btn btn-secondary" />
         <input type="submit" name="btnact" value="Actualizar" class="btn btn-success" />
-        <input type="submit" name="btneli" value="Eliminar" class="btn btn-danger" /></th>
+        <input type="submit" name="btneli" value="Eliminar" class="btn btn-danger" onclick="return confirm('¿Seguro quiere borrar?, esta acción no se puede deshacer.')"/></th>
     </tr>
     <tr>
       <th scope="row">Cedula</th>
@@ -48,7 +48,7 @@ e=request.getParameter("es");
       <td width="11%" colspan="2" rowspan="5">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="number" name="cedula"  value="<%=d%>" placeholder = " # CEDULA" /></th>
+      <th scope="row"><input type="number" name="cedula"  value="<%=d%>" placeholder = " # CEDULA" required/></th>
       <td><input type="text" name="email"  value="<%=u%>"placeholder = "email" /></td>
       <td><input type="text" name="nombre"  value="<%=c%>"placeholder = "nombre" /></td>
       </tr>

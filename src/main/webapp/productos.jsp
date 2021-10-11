@@ -38,7 +38,7 @@ if (request.getParameter("do") != null) {
 						name="btncon" value="Consultar" class="btn btn-secondary" /> <input
 						type="submit" name="btnact" value="Actualizar"
 						class="btn btn-success" /> <input type="submit" name="btneli"
-						value="Eliminar" class="btn btn-danger" /></th>
+						value="Eliminar" class="btn btn-danger" onclick="return confirm('¿Seguro quiere borrar?, esta acción no se puede deshacer.')"/></th>
 				</tr>
 				<tr>
 					<th scope="row">codigo producto</th>
@@ -47,8 +47,8 @@ if (request.getParameter("do") != null) {
 					<td width="11%" colspan="2" rowspan="5">&nbsp;</td>
 				</tr>
 				<tr>
-					<th scope="row"><input type="text" name="codigo_producto"
-						value="<%=d%>" placeholder=" # codigo" /></th>
+					<th scope="row"><input type="number" name="codigo_producto"
+						value="<%=d%>" placeholder=" # codigo" required/></th>
 					<td><input type="text" name="ivacompra" value="<%=u%>"
 						placeholder="iva" /></td>
 					<td><input type="text" name="nit_proveedor" value="<%=c%>"
@@ -80,19 +80,52 @@ if (request.getParameter("do") != null) {
 	<br>
 
 </div>
-<!-- <div class="row" align="center"> -- TODO: Para sprint 4
+
+<div class="row" align="center">
 	<h2>Cargar masiva por archivo .csv</h2>
-	<form action="servletproductos" method="post"
+	<form action="servletproductosload" method="post"
 		enctype="multipart/form-data">
 
-		<input type="file" name="file" accept=".csv" class="btn btn-primary" />
+		<input type="file" name="file" accept=".csv" class="btn btn-secondary" />
 		<input type="submit" name="btn_archivo" value="cargar archivo csv"
 			class="btn btn-primary" />
 	</form>
-</div> -->
-
+</div>
 
 <br>
+
+<div class="row">
+
+	<c:set var="mensaje_error" value="${requestScope.mensaje_error}" />
+	<c:if test="${not empty mensaje_error}">
+		<div class="alert alert-danger alert-dismissible">
+			<p>${mensaje_error}</p>
+		</div>
+	</c:if>
+
+</div>
+
+<div class="row">
+
+	<c:set var="mensaje_success" value="${requestScope.mensaje_success}" />
+	<c:if test="${not empty mensaje_success}">
+		<div class="alert alert-success alert-dismissible">
+			<p>${mensaje_success}</p>
+		</div>
+	</c:if>
+
+</div>
+
+<div class="row">
+
+	<c:set var="mensaje_warning" value="${requestScope.mensaje_warning}" />
+	<c:if test="${not empty mensaje_warning}">
+		<div class="alert alert-warning alert-dismissible">
+			<p>${mensaje_warning}</p>
+		</div>
+	</c:if>
+
+</div>
 
 <%@page import="modelo.ProductosDAO,modelo.*,java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
