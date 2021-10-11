@@ -36,7 +36,7 @@ e=request.getParameter("es");
       <th colspan="5" scope="row"><input type="submit" name="btnins" value="Registrar" class="btn btn-primary" />
         <input type="submit" name="btncon" value="Consultar" class="btn btn-secondary" />
         <input type="submit" name="btnact" value="Actualizar" class="btn btn-success" />
-        <input type="submit" name="btneli" value="Eliminar" class="btn btn-danger" /></th>
+        <input type="submit" name="btneli" value="Eliminar" class="btn btn-danger" onclick="return confirm('¿Seguro quiere borrar?, esta acción no se puede deshacer.')"/></th>
     </tr>
     <tr>
       <th scope="row">Cedula Cliente</th>
@@ -45,7 +45,7 @@ e=request.getParameter("es");
       <td width="11%" colspan="2" rowspan="5">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="text" name="cedula_cliente"  value="<%=d%>" placeholder = " # CEDULA" /></th>
+      <th scope="row"><input type="number" name="cedula_cliente"  value="<%=d%>" placeholder = " # CEDULA" required/></th>
       <td><input type="text" name="direccion"  value="<%=u%>"placeholder = "direccion" /></td>
       <td><input type="text" name="email"  value="<%=c%>"placeholder = "email" /></td>
       </tr>
@@ -69,6 +69,40 @@ e=request.getParameter("es");
 
 
 </form>
+</div>
+
+
+<div class="row">
+
+	<c:set var="mensaje_error" value="${requestScope.mensaje_error}" />
+	<c:if test="${not empty mensaje_error}">
+		<div class="alert alert-danger alert-dismissible">
+			<p>${mensaje_error}</p>
+		</div>
+	</c:if>
+
+</div>
+
+<div class="row">
+
+	<c:set var="mensaje_success" value="${requestScope.mensaje_success}" />
+	<c:if test="${not empty mensaje_success}">
+		<div class="alert alert-success alert-dismissible">
+			<p>${mensaje_success}</p>
+		</div>
+	</c:if>
+
+</div>
+
+<div class="row">
+
+	<c:set var="mensaje_warning" value="${requestScope.mensaje_warning}" />
+	<c:if test="${not empty mensaje_warning}">
+		<div class="alert alert-warning alert-dismissible">
+			<p>${mensaje_warning}</p>
+		</div>
+	</c:if>
+
 </div>
 
 
