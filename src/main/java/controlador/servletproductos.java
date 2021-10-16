@@ -136,7 +136,7 @@ public class servletproductos extends HttpServlet {
 		if(request.getParameter("btneli")!=null) {
 			//Acci�n para eliminar
 			int y;
-			d=Integer.parseInt(request.getParameter("codigo_productos"));
+			d=Integer.parseInt(request.getParameter("codigo_producto"));
 			 pdto=new ProductosDTO(d);
 			 pdao=new ProductosDAO();
 			 y=pdao.eliminar(pdto);

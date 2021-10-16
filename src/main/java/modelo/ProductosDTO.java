@@ -42,12 +42,13 @@ public class ProductosDTO {
 	public void setNitproveedor(int nitproveedor) {
 		this.nitproveedor = nitproveedor;
 	}
-	public String getNombre_producto() {
-		return nombre_producto;
-	}
 	public void setNombre_producto(String nombre_producto) {
 		this.nombre_producto = nombre_producto;
 	}
+	public String getNombre_producto() {
+		return nombre_producto;
+	}
+
 	public double getPrecio_compra() {
 		return precio_compra;
 	}
