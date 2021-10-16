@@ -43,12 +43,12 @@ e=request.getParameter("es");
     </tr>
     <tr>
       <th scope="row">Cedula</th>
-      <td>email</td>
+      <td><strong>email</strong></td>
       <td>nombre</td>
       <td width="11%" colspan="2" rowspan="5">&nbsp;</td>
       </tr>
     <tr>
-      <th scope="row"><input type="number" name="cedula"  value="<%=d%>" placeholder = " # CEDULA" required/></th>
+      <td><input type="number" name="cedula"  value="<%=d%>" placeholder = " # CEDULA"/></td>
       <td><input type="text" name="email"  value="<%=u%>"placeholder = "email" /></td>
       <td><input type="text" name="nombre"  value="<%=c%>"placeholder = "nombre" /></td>
       </tr>
@@ -111,6 +111,8 @@ e=request.getParameter("es");
 
 <%@page import="modelo.UsuarioDAO,modelo.*,java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<br>
+<br>
 <h3>LISTADO DE USUARIOS</h3>
   
 <%
