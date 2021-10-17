@@ -99,7 +99,7 @@ if (request.getParameter("mensaje_warning") != null) {
 								value="<%=n1%>" placeholder="nombre producto" disabled /></td>
 							<td><input type="number" name="cantidad1" value="<%=cant1%>"
 								placeholder="cant" /></td>
-							<td><input type="text" name="total" value="<%=vr_total1%>"
+							<td><input type="number" name="total" value="<%=vr_total1%>"
 								placeholder="vr total" disabled /></td>
 
 						</tr>
@@ -111,7 +111,7 @@ if (request.getParameter("mensaje_warning") != null) {
 								value="<%=n2%>" placeholder="nombre producto" disabled /></td>
 							<td><input type="number" name="cantidad2" value="<%=cant2%>"
 								placeholder="cant" /></td>
-							<td scope="row"><input type="text" name="total"
+							<td scope="row"><input type="number" name="total"
 								value="<%=vr_total2%>" placeholder="vr total" disabled /></td>
 
 						</tr>
@@ -122,7 +122,7 @@ if (request.getParameter("mensaje_warning") != null) {
 								value="<%=n3%>" placeholder="nombre producto" disabled /></td>
 							<td><input type="number" name="cantidad3" value="<%=cant3%>"
 								placeholder="cant" /></td>
-							<td><input type="text" name="total" value="<%=vr_total3%>"
+							<td><input type="number" name="total" value="<%=vr_total3%>"
 								placeholder="vr total" disabled /></td>
 
 
@@ -151,9 +151,9 @@ if (request.getParameter("mensaje_warning") != null) {
 							<th scope="row"><input type="number" name="totalventa"
 								value="<%=totalventa%>" placeholder=" # total venta" disabled /></th>
 
-							<td><input type="text" name="totaliva" value="<%=totaliva%>"
+							<td><input type="number" name="totaliva" value="<%=totaliva%>"
 								placeholder="total iva" disabled /></td>
-							<td><input type="text" name="total_con_iva"
+							<td><input type="number" name="total_con_iva"
 								value="<%=total_con_iva%>" placeholder="total con iva" disabled /></td>
 							<td><button align="left" type="submit" name="btnconfirm"
 									class="btn btn-secondary btn-lg">Confirmar</button></td>
