@@ -67,7 +67,7 @@
 					Manuel Gómez<br>
 					Norbey García<br>
 					Rafael Freay<br>
-					Santiago Gómez</p>
+					<strike>Santiago Gómez</strike></p>
 				</div>
 			</div>
 		</div>
