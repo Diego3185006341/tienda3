@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -95,6 +96,47 @@ public class VentasDAO {
 		}
 
 		return codigodetalleventa;
+	}
+	
+	
+		
+	public static ArrayList<VentasReporteDTO> reporteventas(){
+		ArrayList<VentasReporteDTO> lista=new  ArrayList<VentasReporteDTO>();
+		VentasReporteDTO ventareporte;
+		try {
+			ps=cnn.prepareStatement("SELECT DISTINCT v.cedula_cliente, c.nombre_cliente, SUM(v.total_venta) FROM ventas AS v INNER JOIN clientes AS c ON c.cedula_cliente = v.cedula_cliente GROUP BY v.cedula_cliente ORDER BY v.cedula_cliente");
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				ventareporte=new VentasReporteDTO(rs.getInt(1),rs.getString(2),rs.getDouble(3));
+			   lista.add(ventareporte);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lista;
+	}
+	
+	
+	public static Double totalventas() {
+
+		Double totalventas = (double) 0;
+
+		try {
+			ps = cnn.prepareStatement("SELECT SUM(total_venta) AS total_ventas FROM ventas");
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				totalventas = rs.getDouble(1);
+
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+
+		return totalventas;
 	}
 
 }
