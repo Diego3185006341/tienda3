@@ -23,7 +23,7 @@ public String insertarproveedores(ProveedoresDTO pdo) {
 		try {
 			   pvdo=consultarproveedores(pdo);
 			if(pvdo==null) {
-				ps=cnn.prepareStatement("INSERT INTO Proveedores VALUES(?,?,?,?,?)");
+				ps=cnn.prepareStatement("INSERT INTO proveedores VALUES(?,?,?,?,?)");
 				ps.setInt(1, pdo.getnitproveedor());
 				ps.setString(2, pdo.getciudad_proveedor());
 				ps.setString(3, pdo.getdireccion_proveedor());
