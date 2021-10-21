@@ -1,13 +1,14 @@
 package modelo;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 import controlador.Conexion;
+
 public class ProductosDAO {
 	static Conexion con=new Conexion();
 	static Connection cnn=con.conexiondb();
