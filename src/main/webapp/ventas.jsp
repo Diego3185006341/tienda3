@@ -53,7 +53,8 @@ if (request.getParameter("mensaje_warning") != null) {
 			<thead>
 				<tr>
 					<th colspan="5" scope="col"><center>
-							<h2>Formulario ventas</h2></th>
+					<br> <br>
+							<h1>Formulario ventas</h1></th>
 				</tr>
 			</thead>
 			<tbody>

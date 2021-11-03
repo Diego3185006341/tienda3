@@ -63,11 +63,10 @@
 				<img src="https://misionticueb.myopenlms.net/pluginfile.php/91348/theme_snap/coverimage/1630177066/course-image.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h5 class="card-title">Equipo 05</h5>
-					<p class="card-text">Diego Galindo<br>
-					Manuel Gómez<br>
-					Norbey García<br>
-					Rafael Freay<br>
-					<strike>Santiago Gómez</strike></p>
+					<p class="card-text">Diego Galindo <a href="https://interacpedia.com/user/diego-galindo-useche" target="_blank">Interacpedia</a><br>
+					Manuel Gómez <a href="https://interacpedia.com/user/manuel-eduardo-gomez-ortiz" target="_blank">Interacpedia</a><br>
+					Norbey García <a href="https://interacpedia.com/user/talent-sys" target="_blank">Interacpedia</a><br>
+					Rafael Freay <a href="https://interacpedia.com/user/rafael-antonio-freay-avila" target="_blank">Interacpedia</a></p>
 				</div>
 			</div>
 		</div>

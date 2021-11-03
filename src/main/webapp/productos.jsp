@@ -28,7 +28,8 @@ if (request.getParameter("do") != null) {
 			<thead>
 				<tr>
 					<th colspan="5" scope="col"><center>
-							<h2>Formulario de Registro de Productos</h2></th>
+					<br> <br>
+							<h1>Formulario de Registro de Productos</h1></th>
 				</tr>
 			</thead>
 			<tbody>
