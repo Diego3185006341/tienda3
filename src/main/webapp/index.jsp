@@ -77,7 +77,7 @@
 
 					<div class="row">
 						<h1 style="text-align: center; color: white;">Proyecto tienda
-							genérica</h1>
+							genérica JUNGLE</h1>
 						<h2 style="text-align: center; color: white;">misiontic2022 -
 							Universidad El Bosque</h2>
 						<h2 style="text-align: center; color: white;">ciclo 3, grupo

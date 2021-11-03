@@ -28,7 +28,8 @@ e=request.getParameter("es");
   <thead>
     <tr>
       <th colspan="5" scope="col"><center>
-        <h5>Formulario de  Registro Clientes</h5></th>
+      <br> <br>
+        <h1>Formulario de  Registro Clientes</h1></th>
     </tr>
   </thead>
   <tbody>

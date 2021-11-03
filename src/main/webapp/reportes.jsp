@@ -8,61 +8,33 @@
 
 <!-- inicio de contenido  -->
 
-
-<main class="row">
-
-	<div class="row">
-
-		<div class="col-md-12">
-
-			<h2>REPORTES</h2>
-			<br> <br>
-
-		</div>
-
-	</div>
-
-
-	<div class="row">
-
-		<div class="col-md-12">
-
-			<a href="reporteusuarios.jsp" class="btn btn-primary">Listado de
-				Usuarios</a> <br> <br>
-
-		</div>
-
-	</div>
-
-
-
-	<div class="row">
-
-		<div class="col-md-12">
-
-			<a href="reporteclientes.jsp" class="btn btn-primary">Listado de
-				Clientes</a> <br> <br>
-
-		</div>
-
-	</div>
-
-	<br>
-
-	<div class="row">
-
-		<div class="col-md-12">
-
-			<a href="reporteventas.jsp" class="btn btn-primary">Ventas por
-				Cliente</a>
-
-		</div>
-
-	</div>
+<div class="container w-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-12">
+      <div class="form-group">
+      <br> <br>
+        <h2 class="text-center">REPORTES</h2>
+      </div>
+      <div class="form-group">
+      <br> <br>
+        <p class="text-center"><a href="reporteusuarios.jsp" class="btn btn-primary">Listado de
+				Usuarios</a></p><br> <br>
+      </div>
+      
+      <div class="form-group">
+        <p class="text-center"><a href="reporteclientes.jsp" class="btn btn-primary">Listado de
+				Clientes</a></p><br> <br>
+      </div>
+      
+      <div class="form-group">
+        <p class="text-center"><a href="reporteventas.jsp" class="btn btn-primary">Ventas por
+				Cliente</a></p><br> <br>
+      </div>
+    </div>   
+  </div>
+</div>
 
 
-
-</main>
 
 <!-- fin contenido  -->
 
